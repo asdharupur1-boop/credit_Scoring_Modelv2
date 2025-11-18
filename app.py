@@ -1144,7 +1144,7 @@ RECOMMENDATIONS:
             st.markdown("""
             <a href="mailto:Asdharupur1@gmail.com" style="color: white; text-decoration: none;">
                 <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" class="small-icon">
-                ayush.shukla774@gmail.com
+                Asdharupur1@gmail.com
             </a>
             """, unsafe_allow_html=True)
             st.caption("Get in touch")
@@ -1218,4 +1218,5 @@ RECOMMENDATIONS:
 if __name__ == "__main__":
     app = AICreditScoring2()
     app.run()
+
 
