@@ -199,77 +199,72 @@ class AICreditScoring2:
                 margin: 2rem 0;
                 text-align: center;
             }
-            .social-links {
-                display: flex;
-                justify-content: center;
-                gap: 1rem;
-                margin: 1rem 0;
-                flex-wrap: wrap;
-            }
-            .social-link {
-                background: rgba(255,255,255,0.2);
-                padding: 0.8rem 1.2rem;
-                border-radius: 8px;
-                color: white;
-                text-decoration: none;
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                transition: all 0.3s ease;
-            }
-            .social-link:hover {
-                background: rgba(255,255,255,0.3);
-                transform: translateY(-2px);
-            }
         </style>
         """, unsafe_allow_html=True)
 
     def render_developer_profile(self):
-        """Render Ayush Shukla's developer profile"""
+        """Render Ayush Shukla's developer profile using pure Streamlit"""
+        # Main developer card
         st.markdown("""
         <div class="developer-card">
-            <h2 style="margin-bottom: 0.5rem;">👨‍💻 Developed by Ayush Shukla</h2>
-            <p style="margin-bottom: 1rem; opacity: 0.9;">Data Scientist & AI Engineer</p>
-            
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/ayush-shukla-data-scientist/" target="_blank" class="social-link">
-                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="20" height="20">
-                    LinkedIn
-                </a>
-                <a href="https://github.com/ayushshukla774" target="_blank" class="social-link">
-                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="20" height="20">
-                    GitHub
-                </a>
-                <a href="mailto:ayush.shukla774@gmail.com" class="social-link">
-                    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="20" height="20">
-                    Email
-                </a>
-            </div>
-            
-            <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px;">
-                <h4 style="margin-bottom: 0.5rem;">🚀 About This Project</h4>
-                <p style="margin: 0; font-size: 0.9rem; opacity: 0.9;">
-                AI Credit Scoring 2.0 is an advanced machine learning platform that combines traditional credit bureau models 
-                with modern AI algorithms to provide comprehensive credit risk assessment.
-                </p>
-            </div>
-            
-            <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
-                <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">
-                    🤖 Machine Learning
-                </span>
-                <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">
-                    📊 Data Science
-                </span>
-                <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">
-                    🏦 FinTech
-                </span>
-                <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">
-                    🔧 Streamlit
-                </span>
-            </div>
+            <h2 style="text-align: center; margin-bottom: 0.5rem;">👨‍💻 Developed by Ayush Shukla</h2>
+            <p style="text-align: center; margin-bottom: 1rem; opacity: 0.9;">Data Scientist & AI Engineer</p>
         </div>
         """, unsafe_allow_html=True)
+        
+        # Contact information in a clean layout
+        st.subheader("📞 Contact & Links", anchor=False)
+        
+        contact_col1, contact_col2, contact_col3 = st.columns(3)
+        
+        with contact_col1:
+            st.markdown("**LinkedIn**")
+            st.markdown("[![LinkedIn](https://cdn-icons-png.flaticon.com/512/174/174857.png)](https://www.linkedin.com/in/ayush-shukla-data-scientist/)", unsafe_allow_html=True)
+            st.caption("Professional Profile")
+        
+        with contact_col2:
+            st.markdown("**GitHub**")
+            st.markdown("[![GitHub](https://cdn-icons-png.flaticon.com/512/25/25231.png)](https://github.com/ayushshukla774)", unsafe_allow_html=True)
+            st.caption("Code & Projects")
+        
+        with contact_col3:
+            st.markdown("**Email**")
+            st.markdown("[![Email](https://cdn-icons-png.flaticon.com/512/732/732200.png)](mailto:ayush.shukla774@gmail.com)", unsafe_allow_html=True)
+            st.caption("ayush.shukla774@gmail.com")
+        
+        # About This Project
+        st.markdown("---")
+        st.subheader("🚀 About This Project", anchor=False)
+        st.info("""
+        **AI Credit Scoring 2.0** is an advanced machine learning platform that combines traditional credit bureau models 
+        with modern AI algorithms to provide comprehensive credit risk assessment. This enterprise solution features:
+        
+        - 🤖 **8 AI Models** working in ensemble
+        - 📊 **Real-time analytics** and risk scoring
+        - 🏦 **Bank-grade** credit assessment
+        - 📄 **Professional reporting** system
+        """)
+        
+        # Skills and Technologies
+        st.subheader("🛠️ Technologies Used", anchor=False)
+        
+        tech_col1, tech_col2, tech_col3, tech_col4 = st.columns(4)
+        
+        with tech_col1:
+            st.success("**Machine Learning**")
+            st.caption("XGBoost, LightGBM, Ensemble")
+        
+        with tech_col2:
+            st.success("**Data Science**")
+            st.caption("Pandas, NumPy, Scikit-learn")
+        
+        with tech_col3:
+            st.success("**FinTech**")
+            st.caption("Credit Risk, Scoring")
+        
+        with tech_col4:
+            st.success("**Streamlit**")
+            st.caption("Web Framework, Deployment")
 
     def render_enterprise_header(self):
         """Render enterprise header"""
@@ -940,6 +935,7 @@ class AICreditScoring2:
                 <h2>Credit Assessment Report</h2>
                 <p>Generated on: {timestamp.strftime("%Y-%m-%d %H:%M:%S")}</p>
                 <p>Applicant ID: {applicant_id}</p>
+                <p><em>Developed by Ayush Shukla - Data Scientist & AI Engineer</em></p>
             </div>
             
             <div class="section">
@@ -1027,7 +1023,7 @@ class AICreditScoring2:
             
             <div class="section">
                 <p><em>Report generated by AI Credit Scoring 2.0 Enterprise Platform</em></p>
-                <p><em>Developed by Ayush Shukla | Data Scientist & AI Engineer</em></p>
+                <p><em>Confidential - For internal use only</em></p>
             </div>
         </body>
         </html>
@@ -1051,7 +1047,7 @@ AI CREDIT SCORING 2.0 - CREDIT ASSESSMENT REPORT
 
 Generated: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
 Applicant ID: {applicant_id}
-Developed by: Ayush Shukla
+Developed by: Ayush Shukla - Data Scientist & AI Engineer
 
 APPLICANT INFORMATION:
 ---------------------
@@ -1085,7 +1081,7 @@ RECOMMENDATIONS:
         else:
             report += "🔴 FURTHER REVIEW REQUIRED\n- Credit Limit: Up to ₹2,00,000\n- Interest Rate: 16.5% - 19.5% p.a.\n- Loan Term: 12-24 months"
 
-        report += f"\n\n---\nReport generated by AI Credit Scoring 2.0\nDeveloped by Ayush Shukla - Data Scientist & AI Engineer"
+        report += f"\n\n---\nReport generated by AI Credit Scoring 2.0 Enterprise Platform\nDeveloped by Ayush Shukla"
         
         return report
 
