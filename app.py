@@ -1122,7 +1122,7 @@ RECOMMENDATIONS:
         with contact_col1:
             st.markdown("**LinkedIn**")
             st.markdown("""
-            <a href="https://www.linkedin.com/in/ayush-shukla-data-scientist/" target="_blank" style="color: white; text-decoration: none;">
+            <a href="https://www.linkedin.com/in/ayush-shukla-890072337/" target="_blank" style="color: white; text-decoration: none;">
                 <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" class="small-icon">
                 Connect on LinkedIn
             </a>
@@ -1132,7 +1132,7 @@ RECOMMENDATIONS:
         with contact_col2:
             st.markdown("**GitHub**")
             st.markdown("""
-            <a href="https://github.com/ayushshukla774" target="_blank" style="color: white; text-decoration: none;">
+            <a href="https://github.com/asdharupur1-boop" target="_blank" style="color: white; text-decoration: none;">
                 <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" class="small-icon">
                 View GitHub Profile
             </a>
@@ -1142,7 +1142,7 @@ RECOMMENDATIONS:
         with contact_col3:
             st.markdown("**Email**")
             st.markdown("""
-            <a href="mailto:ayush.shukla774@gmail.com" style="color: white; text-decoration: none;">
+            <a href="mailto:Asdharupur1@gmail.com" style="color: white; text-decoration: none;">
                 <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" class="small-icon">
                 ayush.shukla774@gmail.com
             </a>
@@ -1218,3 +1218,4 @@ RECOMMENDATIONS:
 if __name__ == "__main__":
     app = AICreditScoring2()
     app.run()
+
