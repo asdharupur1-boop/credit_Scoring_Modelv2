@@ -57,7 +57,7 @@ class AICreditScoring2:
     def setup_application(self):
         """Setup the enterprise application"""
         st.set_page_config(
-            page_title="AI Credit Scoring 2.0 | Enterprise Platform",
+            page_title="AI Credit Scoring 2.0 | Ayush Shukla",
             page_icon="🚀",
             layout="wide",
             initial_sidebar_state="collapsed"
@@ -191,7 +191,84 @@ class AICreditScoring2:
                 margin: 1rem 0;
                 border: 2px solid #4ECDC4;
             }
+            .developer-card {
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 2rem;
+                border-radius: 15px;
+                margin: 2rem 0;
+                text-align: center;
+            }
+            .social-links {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                margin: 1rem 0;
+                flex-wrap: wrap;
+            }
+            .social-link {
+                background: rgba(255,255,255,0.2);
+                padding: 0.8rem 1.2rem;
+                border-radius: 8px;
+                color: white;
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                transition: all 0.3s ease;
+            }
+            .social-link:hover {
+                background: rgba(255,255,255,0.3);
+                transform: translateY(-2px);
+            }
         </style>
+        """, unsafe_allow_html=True)
+
+    def render_developer_profile(self):
+        """Render Ayush Shukla's developer profile"""
+        st.markdown("""
+        <div class="developer-card">
+            <h2 style="margin-bottom: 0.5rem;">👨‍💻 Developed by Ayush Shukla</h2>
+            <p style="margin-bottom: 1rem; opacity: 0.9;">Data Scientist & AI Engineer</p>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/ayush-shukla-data-scientist/" target="_blank" class="social-link">
+                    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="20" height="20">
+                    LinkedIn
+                </a>
+                <a href="https://github.com/ayushshukla774" target="_blank" class="social-link">
+                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="20" height="20">
+                    GitHub
+                </a>
+                <a href="mailto:ayush.shukla774@gmail.com" class="social-link">
+                    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" width="20" height="20">
+                    Email
+                </a>
+            </div>
+            
+            <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(255,255,255,0.1); border-radius: 8px;">
+                <h4 style="margin-bottom: 0.5rem;">🚀 About This Project</h4>
+                <p style="margin: 0; font-size: 0.9rem; opacity: 0.9;">
+                AI Credit Scoring 2.0 is an advanced machine learning platform that combines traditional credit bureau models 
+                with modern AI algorithms to provide comprehensive credit risk assessment.
+                </p>
+            </div>
+            
+            <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
+                <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">
+                    🤖 Machine Learning
+                </span>
+                <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">
+                    📊 Data Science
+                </span>
+                <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">
+                    🏦 FinTech
+                </span>
+                <span style="background: rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">
+                    🔧 Streamlit
+                </span>
+            </div>
+        </div>
         """, unsafe_allow_html=True)
 
     def render_enterprise_header(self):
@@ -214,59 +291,76 @@ class AICreditScoring2:
         """, unsafe_allow_html=True)
 
     def render_platform_instructions(self):
-        """Render clear platform instructions"""
+        """Render clear platform instructions using Streamlit components"""
         st.markdown("""
         <div class="instruction-card">
             <h2 style="text-align: center; margin-bottom: 1.5rem;">🎯 How to Use This Platform</h2>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
-                <div class="step-card">
-                    <h3>📝 1. Enter Applicant Details</h3>
-                    <p>Fill in the credit application form with applicant's financial information including credit score, income, employment history, and credit metrics.</p>
-                </div>
-                <div class="step-card">
-                    <h3>🚀 2. Analyze Credit Risk</h3>
-                    <p>Click the "Analyze Credit Risk" button to process the application through our advanced AI models.</p>
-                </div>
-                <div class="step-card">
-                    <h3>📊 3. Review Results</h3>
-                    <p>Examine comprehensive scoring results, risk assessment, and AI model analytics.</p>
-                </div>
-                <div class="step-card">
-                    <h3>📄 4. Download Reports</h3>
-                    <p>Generate and download professional reports in multiple formats for documentation and decision-making.</p>
-                </div>
-            </div>
-
-            <h3 style="text-align: center; margin: 1.5rem 0 1rem 0;">📊 What You'll Get:</h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.8rem;">
-                <div class="benefit-item">
-                    <strong>✅ Real-time Credit Scoring</strong>
-                    <p style="margin: 0.3rem 0 0 0; font-size: 0.9rem;">Multiple AI models providing instant credit scores and risk assessment</p>
-                </div>
-                <div class="benefit-item">
-                    <strong>✅ Detailed Risk Analysis</strong>
-                    <p style="margin: 0.3rem 0 0 0; font-size: 0.9rem;">Comprehensive risk assessment with actionable recommendations</p>
-                </div>
-                <div class="benefit-item">
-                    <strong>✅ AI Model Analytics</strong>
-                    <p style="margin: 0.3rem 0 0 0; font-size: 0.9rem;">Compare performance across multiple machine learning models</p>
-                </div>
-                <div class="benefit-item">
-                    <strong>✅ Portfolio Insights</strong>
-                    <p style="margin: 0.3rem 0 0 0; font-size: 0.9rem;">Portfolio-level risk distribution and performance trends</p>
-                </div>
-                <div class="benefit-item">
-                    <strong>✅ Professional Reports</strong>
-                    <p style="margin: 0.3rem 0 0 0; font-size: 0.9rem;">Downloadable reports in HTML, Text, and CSV formats</p>
-                </div>
-                <div class="benefit-item">
-                    <strong>✅ Credit Recommendations</strong>
-                    <p style="margin: 0.3rem 0 0 0; font-size: 0.9rem;">Specific credit limits, interest rates, and terms based on risk</p>
-                </div>
-            </div>
         </div>
         """, unsafe_allow_html=True)
+        
+        # Step 1
+        with st.container():
+            col1, col2 = st.columns([1, 3])
+            with col1:
+                st.markdown("<h1 style='text-align: center; font-size: 2.5rem;'>📝</h1>", unsafe_allow_html=True)
+            with col2:
+                st.subheader("1. Enter Applicant Details")
+                st.write("Fill in the credit application form with applicant's financial information including credit score, income, employment history, and credit metrics.")
+        
+        st.markdown("---")
+        
+        # Step 2
+        with st.container():
+            col1, col2 = st.columns([1, 3])
+            with col1:
+                st.markdown("<h1 style='text-align: center; font-size: 2.5rem;'>🚀</h1>", unsafe_allow_html=True)
+            with col2:
+                st.subheader("2. Analyze Credit Risk")
+                st.write("Click the 'Analyze Credit Risk' button to process the application through our advanced AI models.")
+        
+        st.markdown("---")
+        
+        # Step 3
+        with st.container():
+            col1, col2 = st.columns([1, 3])
+            with col1:
+                st.markdown("<h1 style='text-align: center; font-size: 2.5rem;'>📊</h1>", unsafe_allow_html=True)
+            with col2:
+                st.subheader("3. Review Results")
+                st.write("Examine comprehensive scoring results, risk assessment, and AI model analytics.")
+        
+        st.markdown("---")
+        
+        # Step 4
+        with st.container():
+            col1, col2 = st.columns([1, 3])
+            with col1:
+                st.markdown("<h1 style='text-align: center; font-size: 2.5rem;'>📄</h1>", unsafe_allow_html=True)
+            with col2:
+                st.subheader("4. Download Reports")
+                st.write("Generate and download professional reports in multiple formats for documentation and decision-making.")
+        
+        # What You'll Get section
+        st.markdown("""
+        <div style="text-align: center; margin: 2rem 0 1rem 0;">
+            <h3>📊 What You'll Get:</h3>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Benefits in columns
+        col1, col2, col3 = st.columns(3)
+        
+        with col1:
+            st.info("**✅ Real-time Credit Scoring**\n\nMultiple AI models providing instant credit scores and risk assessment")
+            st.info("**✅ Detailed Risk Analysis**\n\nComprehensive risk assessment with actionable recommendations")
+        
+        with col2:
+            st.info("**✅ AI Model Analytics**\n\nCompare performance across multiple machine learning models")
+            st.info("**✅ Portfolio Insights**\n\nPortfolio-level risk distribution and performance trends")
+        
+        with col3:
+            st.info("**✅ Professional Reports**\n\nDownloadable reports in HTML, Text, and CSV formats")
+            st.info("**✅ Credit Recommendations**\n\nSpecific credit limits, interest rates, and terms based on risk")
 
     def render_advanced_dashboard(self):
         """Render advanced dashboard with real metrics"""
@@ -276,40 +370,13 @@ class AICreditScoring2:
         col1, col2, col3, col4 = st.columns(4)
         
         with col1:
-            st.markdown("""
-            <div class="dashboard-metric">
-                <h4 style="margin: 0; font-size: 14px;">AI Accuracy</h4>
-                <h3 style="margin: 5px 0;">94.7%</h3>
-                <p style="margin: 0; font-size: 12px;">AUC Score</p>
-            </div>
-            """, unsafe_allow_html=True)
-        
+            st.metric("AI Accuracy", "94.7%", "0.8%")
         with col2:
-            st.markdown("""
-            <div class="dashboard-metric">
-                <h4 style="margin: 0; font-size: 14px;">Processing Speed</h4>
-                <h3 style="margin: 5px 0;">89ms</h3>
-                <p style="margin: 0; font-size: 12px;">Avg Response</p>
-            </div>
-            """, unsafe_allow_html=True)
-        
+            st.metric("Processing Speed", "89ms", "-12ms")
         with col3:
-            st.markdown("""
-            <div class="dashboard-metric">
-                <h4 style="margin: 0; font-size: 14px;">Risk Reduction</h4>
-                <h3 style="margin: 5px 0;">42%</h3>
-                <p style="margin: 0; font-size: 12px;">vs Traditional</p>
-            </div>
-            """, unsafe_allow_html=True)
-        
+            st.metric("Risk Reduction", "42%", "5%")
         with col4:
-            st.markdown("""
-            <div class="dashboard-metric">
-                <h4 style="margin: 0; font-size: 14px;">Approval Rate</h4>
-                <h3 style="margin: 5px 0;">86%</h3>
-                <p style="margin: 0; font-size: 12px;">Smart Decisions</p>
-            </div>
-            """, unsafe_allow_html=True)
+            st.metric("Approval Rate", "86%", "3%")
         
         # Real-time Analytics
         st.subheader("📈 Real-time Performance Metrics")
@@ -695,14 +762,11 @@ class AICreditScoring2:
         tab1, tab2, tab3 = st.tabs(["🤖 Model Performance", "🎯 Feature Analysis", "📈 Comparison"])
         
         with tab1:
-            # Model Performance Comparison
-            st.subheader("Model Performance Comparison")
-            
             col1, col2 = st.columns(2)
             
             with col1:
                 # Bureau Models Performance
-                bureau_models = list(self.current_prediction['bureau'].keys())[:-1]  # Exclude ensemble
+                bureau_models = list(self.current_prediction['bureau'].keys())[:-1]
                 bureau_scores = [300 + score * 550 for score in list(self.current_prediction['bureau'].values())[:-1]]
                 
                 fig1 = px.bar(
@@ -730,8 +794,6 @@ class AICreditScoring2:
         
         with tab2:
             # Feature Importance Visualization
-            st.subheader("Feature Importance Analysis")
-            
             features = ['Credit Score', 'Annual Income', 'Employment', 'DTI Ratio', 
                        'Credit Utilization', 'Total Accounts', 'Derogatory Marks', 'Savings']
             importance = [0.32, 0.18, 0.12, 0.15, 0.08, 0.07, 0.05, 0.03]
@@ -744,34 +806,9 @@ class AICreditScoring2:
                 color_continuous_scale='Viridis'
             )
             st.plotly_chart(fig, use_container_width=True)
-            
-            # Feature correlation matrix
-            st.subheader("Feature Correlation Heatmap")
-            corr_matrix = np.array([
-                [1.00, 0.45, 0.35, -0.25, -0.30, 0.20, -0.40, 0.30],
-                [0.45, 1.00, 0.60, -0.15, -0.20, 0.25, -0.25, 0.55],
-                [0.35, 0.60, 1.00, -0.10, -0.15, 0.15, -0.20, 0.40],
-                [-0.25, -0.15, -0.10, 1.00, 0.45, -0.10, 0.35, -0.15],
-                [-0.30, -0.20, -0.15, 0.45, 1.00, -0.15, 0.40, -0.10],
-                [0.20, 0.25, 0.15, -0.10, -0.15, 1.00, -0.15, 0.20],
-                [-0.40, -0.25, -0.20, 0.35, 0.40, -0.15, 1.00, -0.25],
-                [0.30, 0.55, 0.40, -0.15, -0.10, 0.20, -0.25, 1.00]
-            ])
-            
-            fig_corr = px.imshow(
-                corr_matrix,
-                x=features,
-                y=features,
-                title="Feature Correlation Matrix",
-                color_continuous_scale='RdBu_r',
-                aspect="auto"
-            )
-            st.plotly_chart(fig_corr, use_container_width=True)
         
         with tab3:
             # Model comparison
-            st.subheader("Model Score Distribution")
-            
             all_models = []
             all_scores = []
             all_types = []
@@ -811,10 +848,9 @@ class AICreditScoring2:
             
         st.markdown('<div class="section-header"><h2>📈 Portfolio Risk Analytics</h2></div>', unsafe_allow_html=True)
         
-        tab1, tab2, tab3 = st.tabs(["📊 Risk Distribution", "📈 Trends", "👥 Segmentation"])
+        tab1, tab2 = st.tabs(["📊 Risk Distribution", "📈 Performance Trends"])
         
         with tab1:
-            # Risk Distribution
             col1, col2 = st.columns(2)
             
             with col1:
@@ -833,7 +869,6 @@ class AICreditScoring2:
                 st.plotly_chart(fig_pie, use_container_width=True)
             
             with col2:
-                # Default rates by risk category
                 fig_bar = px.bar(
                     risk_data, x='Risk Level', y='Default Rate',
                     title="Default Rates by Risk Category",
@@ -845,9 +880,6 @@ class AICreditScoring2:
                 st.plotly_chart(fig_bar, use_container_width=True)
         
         with tab2:
-            # Performance trends
-            st.subheader("Portfolio Performance Trends")
-            
             trend_data = {
                 'Month': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
                 'Approval Rate': [78, 82, 85, 83, 86, 88, 87, 89],
@@ -872,39 +904,12 @@ class AICreditScoring2:
                     labels={'y': 'Credit Score'}
                 )
                 st.plotly_chart(fig_trend2, use_container_width=True)
-        
-        with tab3:
-            # Customer Segmentation
-            st.subheader("Customer Segmentation Analysis")
-            
-            segment_data = {
-                'Segment': ['Prime (750+)', 'Near Prime (650-749)', 'Subprime (300-649)'],
-                'Customers': [25600, 18700, 5947],
-                'Avg Income': ['₹12.5L', '₹8.2L', '₹5.1L'],
-                'Avg Age': ['42 years', '38 years', '35 years'],
-                'Default Rate': ['0.8%', '2.9%', '8.7%'],
-                'Avg Utilization': ['28%', '45%', '68%']
-            }
-            
-            st.dataframe(pd.DataFrame(segment_data), use_container_width=True)
-            
-            # Segmentation visualization
-            fig_segment = px.sunburst(
-                pd.DataFrame(segment_data),
-                path=['Segment'],
-                values='Customers',
-                title="Customer Distribution by Segment",
-                color='Customers',
-                color_continuous_scale='Viridis'
-            )
-            st.plotly_chart(fig_segment, use_container_width=True)
 
     def generate_html_report(self):
         """Generate HTML report as PDF alternative"""
         if not self.current_prediction:
             return None
             
-        # Create comprehensive HTML report
         features = self.current_prediction['features']
         final_score = self.current_prediction['final_score']
         risk_level = self.current_prediction['risk_level']
@@ -980,7 +985,6 @@ class AICreditScoring2:
                         <li>Credit Limit: ₹8,00,000 - ₹12,00,000</li>
                         <li>Interest Rate: 9.5% - 11.5% p.a.</li>
                         <li>Loan Term: 36-60 months</li>
-                        <li>Processing: Fast-track</li>
                     </ul>
                 </div>
             """
@@ -992,7 +996,6 @@ class AICreditScoring2:
                         <li>Credit Limit: ₹5,00,000 - ₹8,00,000</li>
                         <li>Interest Rate: 11.5% - 13.5% p.a.</li>
                         <li>Loan Term: 24-48 months</li>
-                        <li>Processing: Standard</li>
                     </ul>
                 </div>
             """
@@ -1004,7 +1007,6 @@ class AICreditScoring2:
                         <li>Credit Limit: ₹2,00,000 - ₹5,00,000</li>
                         <li>Interest Rate: 13.5% - 16.5% p.a.</li>
                         <li>Loan Term: 12-36 months</li>
-                        <li>Requirements: Additional collateral</li>
                     </ul>
                 </div>
             """
@@ -1016,7 +1018,6 @@ class AICreditScoring2:
                         <li>Credit Limit: Up to ₹2,00,000</li>
                         <li>Interest Rate: 16.5% - 19.5% p.a.</li>
                         <li>Loan Term: 12-24 months</li>
-                        <li>Requirements: Strong collateral + guarantor</li>
                     </ul>
                 </div>
             """
@@ -1025,28 +1026,8 @@ class AICreditScoring2:
             </div>
             
             <div class="section">
-                <h3>📊 Model Details</h3>
-                <table>
-                    <tr><th>Model</th><th>Type</th><th>Score</th></tr>
-        """
-        
-        # Add bureau models
-        for model, score in self.current_prediction['bureau'].items():
-            if model != 'ensemble':
-                html_content += f"<tr><td>{model.upper()}</td><td>Bureau</td><td>{300 + score * 550:.0f}</td></tr>"
-        
-        # Add AI models
-        for model, score in self.current_prediction['ai_scoring'].items():
-            if model != 'ensemble':
-                html_content += f"<tr><td>{model.upper()}</td><td>AI 2.0</td><td>{300 + score * 550:.0f}</td></tr>"
-        
-        html_content += """
-                </table>
-            </div>
-            
-            <div class="section">
                 <p><em>Report generated by AI Credit Scoring 2.0 Enterprise Platform</em></p>
-                <p><em>Confidential - For internal use only</em></p>
+                <p><em>Developed by Ayush Shukla | Data Scientist & AI Engineer</em></p>
             </div>
         </body>
         </html>
@@ -1070,6 +1051,7 @@ AI CREDIT SCORING 2.0 - CREDIT ASSESSMENT REPORT
 
 Generated: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
 Applicant ID: {applicant_id}
+Developed by: Ayush Shukla
 
 APPLICANT INFORMATION:
 ---------------------
@@ -1089,7 +1071,6 @@ Risk Level: {risk_level}
 Bureau Score: {300 + self.current_prediction['bureau']['ensemble'] * 550:.0f}
 AI 2.0 Score: {300 + self.current_prediction['ai_scoring']['ensemble'] * 550:.0f}
 Default Probability: {self.current_prediction['bureau']['ensemble']:.1%}
-AI Confidence: {self.current_prediction['confidence_score']:.1%}
 
 RECOMMENDATIONS:
 ---------------
@@ -1104,19 +1085,7 @@ RECOMMENDATIONS:
         else:
             report += "🔴 FURTHER REVIEW REQUIRED\n- Credit Limit: Up to ₹2,00,000\n- Interest Rate: 16.5% - 19.5% p.a.\n- Loan Term: 12-24 months"
 
-        report += "\n\nMODEL SCORES:\n------------\n"
-        
-        # Bureau models
-        for model, score in self.current_prediction['bureau'].items():
-            if model != 'ensemble':
-                report += f"Bureau {model.upper()}: {300 + score * 550:.0f}\n"
-        
-        # AI models
-        for model, score in self.current_prediction['ai_scoring'].items():
-            if model != 'ensemble':
-                report += f"AI 2.0 {model.upper()}: {300 + score * 550:.0f}\n"
-
-        report += f"\nReport generated by AI Credit Scoring 2.0 Enterprise Platform"
+        report += f"\n\n---\nReport generated by AI Credit Scoring 2.0\nDeveloped by Ayush Shukla - Data Scientist & AI Engineer"
         
         return report
 
@@ -1127,12 +1096,11 @@ RECOMMENDATIONS:
             
         features = self.current_prediction['features']
         
-        # Create DataFrame
         data = {
             'Parameter': [
                 'Credit_Score', 'Annual_Income', 'Employment_Length', 'DTI_Ratio',
                 'Credit_Utilization', 'Total_Accounts', 'Derogatory_Marks', 'Savings_Balance',
-                'Final_Score', 'Risk_Level', 'Bureau_Score', 'AI_Score', 'Default_Probability', 'AI_Confidence'
+                'Final_Score', 'Risk_Level', 'Bureau_Score', 'AI_Score', 'Default_Probability'
             ],
             'Value': [
                 features[0], features[1], features[2], features[3],
@@ -1141,8 +1109,7 @@ RECOMMENDATIONS:
                 self.current_prediction['risk_level'],
                 300 + self.current_prediction['bureau']['ensemble'] * 550,
                 300 + self.current_prediction['ai_scoring']['ensemble'] * 550,
-                self.current_prediction['bureau']['ensemble'],
-                self.current_prediction['confidence_score']
+                self.current_prediction['bureau']['ensemble']
             ]
         }
         
@@ -1154,11 +1121,9 @@ RECOMMENDATIONS:
         st.markdown('<div class="section-header"><h2>📄 Download Comprehensive Report</h2></div>', unsafe_allow_html=True)
         
         if self.current_prediction:
-            # Generate HTML report
             html_content = self.generate_html_report()
             
             if html_content:
-                # Create download button for HTML report
                 st.markdown("""
                 <div class="pdf-section">
                     <h3 style="text-align: center; color: #2c3e50;">📋 Comprehensive Credit Assessment Report</h3>
@@ -1166,7 +1131,6 @@ RECOMMENDATIONS:
                 </div>
                 """, unsafe_allow_html=True)
                 
-                # Convert HTML to bytes for download
                 html_bytes = html_content.encode('utf-8')
                 
                 col1, col2, col3 = st.columns(3)
@@ -1181,7 +1145,6 @@ RECOMMENDATIONS:
                     )
                 
                 with col2:
-                    # Create a text report alternative
                     text_report = self.generate_text_report()
                     st.download_button(
                         label="📄 Download Text Report",
@@ -1192,7 +1155,6 @@ RECOMMENDATIONS:
                     )
                 
                 with col3:
-                    # CSV data export
                     csv_data = self.generate_csv_data()
                     st.download_button(
                         label="📊 Download CSV Data",
@@ -1201,16 +1163,6 @@ RECOMMENDATIONS:
                         mime="text/csv",
                         use_container_width=True
                     )
-                
-                st.info("""
-                **📋 Report Includes:**
-                - Complete applicant information
-                - Credit assessment results from all AI models
-                - Risk level analysis and recommendations
-                - Detailed model performance
-                - Applicant ID and timestamp
-                - AI confidence scores
-                """)
         else:
             st.warning("Please complete credit assessment first to generate reports.")
 
@@ -1227,6 +1179,9 @@ RECOMMENDATIONS:
         
         # Render header
         self.render_enterprise_header()
+        
+        # Show developer profile
+        self.render_developer_profile()
         
         # Show platform instructions and features when no assessment is done
         if not self.current_prediction:
