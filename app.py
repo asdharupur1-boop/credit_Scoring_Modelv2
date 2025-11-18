@@ -199,72 +199,14 @@ class AICreditScoring2:
                 margin: 2rem 0;
                 text-align: center;
             }
+            .small-icon {
+                width: 20px;
+                height: 20px;
+                vertical-align: middle;
+                margin-right: 8px;
+            }
         </style>
         """, unsafe_allow_html=True)
-
-    def render_developer_profile(self):
-        """Render Ayush Shukla's developer profile using pure Streamlit"""
-        # Main developer card
-        st.markdown("""
-        <div class="developer-card">
-            <h2 style="text-align: center; margin-bottom: 0.5rem;">👨‍💻 Developed by Ayush Shukla</h2>
-            <p style="text-align: center; margin-bottom: 1rem; opacity: 0.9;">Data Scientist & AI Engineer</p>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        # Contact information in a clean layout
-        st.subheader("📞 Contact & Links", anchor=False)
-        
-        contact_col1, contact_col2, contact_col3 = st.columns(3)
-        
-        with contact_col1:
-            st.markdown("**LinkedIn**")
-            st.markdown("[![LinkedIn](https://cdn-icons-png.flaticon.com/512/174/174857.png)](https://www.linkedin.com/in/ayush-shukla-data-scientist/)", unsafe_allow_html=True)
-            st.caption("Professional Profile")
-        
-        with contact_col2:
-            st.markdown("**GitHub**")
-            st.markdown("[![GitHub](https://cdn-icons-png.flaticon.com/512/25/25231.png)](https://github.com/ayushshukla774)", unsafe_allow_html=True)
-            st.caption("Code & Projects")
-        
-        with contact_col3:
-            st.markdown("**Email**")
-            st.markdown("[![Email](https://cdn-icons-png.flaticon.com/512/732/732200.png)](mailto:ayush.shukla774@gmail.com)", unsafe_allow_html=True)
-            st.caption("ayush.shukla774@gmail.com")
-        
-        # About This Project
-        st.markdown("---")
-        st.subheader("🚀 About This Project", anchor=False)
-        st.info("""
-        **AI Credit Scoring 2.0** is an advanced machine learning platform that combines traditional credit bureau models 
-        with modern AI algorithms to provide comprehensive credit risk assessment. This enterprise solution features:
-        
-        - 🤖 **8 AI Models** working in ensemble
-        - 📊 **Real-time analytics** and risk scoring
-        - 🏦 **Bank-grade** credit assessment
-        - 📄 **Professional reporting** system
-        """)
-        
-        # Skills and Technologies
-        st.subheader("🛠️ Technologies Used", anchor=False)
-        
-        tech_col1, tech_col2, tech_col3, tech_col4 = st.columns(4)
-        
-        with tech_col1:
-            st.success("**Machine Learning**")
-            st.caption("XGBoost, LightGBM, Ensemble")
-        
-        with tech_col2:
-            st.success("**Data Science**")
-            st.caption("Pandas, NumPy, Scikit-learn")
-        
-        with tech_col3:
-            st.success("**FinTech**")
-            st.caption("Credit Risk, Scoring")
-        
-        with tech_col4:
-            st.success("**Streamlit**")
-            st.caption("Web Framework, Deployment")
 
     def render_enterprise_header(self):
         """Render enterprise header"""
@@ -284,6 +226,75 @@ class AICreditScoring2:
             </div>
         </div>
         """, unsafe_allow_html=True)
+
+    def render_credit_scoring_form(self):
+        """Render the main credit scoring form - FIRST SECTION"""
+        st.markdown('<div class="section-header"><h2>📋 Applicant Credit Information</h2></div>', unsafe_allow_html=True)
+        
+        with st.form("credit_application"):
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                st.subheader("👤 Personal & Financial Information")
+                credit_score = st.slider("Credit Score", 300, 850, 720, 
+                                       help="FICO credit score range 300-850. Higher scores indicate better credit history.")
+                annual_income = st.number_input("Annual Income (₹)", 100000, 5000000, 750000, 50000,
+                                              help="Gross annual income in Indian Rupees. Include all verifiable income sources.")
+                employment_length = st.number_input("Employment Length (years)", 0, 40, 5,
+                                                  help="Total years in current employment or profession.")
+                total_accounts = st.number_input("Total Credit Accounts", 1, 20, 8,
+                                               help="Number of active credit accounts (credit cards, loans, etc.)")
+                
+            with col2:
+                st.subheader("📊 Credit Metrics & Behavior")
+                dti_ratio = st.slider("Debt-to-Income Ratio", 0.1, 0.8, 0.35, 0.01,
+                                    help="Monthly debt payments divided by monthly gross income. Lower is better.")
+                credit_utilization = st.slider("Credit Utilization Ratio", 0.0, 1.0, 0.3, 0.01,
+                                             help="Total credit used divided by total credit limit. Recommended: below 30%.")
+                derogatory_marks = st.number_input("Derogatory Marks", 0, 10, 0,
+                                                 help="Number of late payments (90+ days), defaults, collections, or bankruptcies.")
+                savings_balance = st.number_input("Savings & Investments (₹)", 0, 2000000, 200000, 10000,
+                                                help="Total liquid savings, investments, and fixed deposits.")
+            
+            # Additional financial information
+            st.subheader("💼 Additional Financial Details")
+            col3, col4, col5 = st.columns(3)
+            
+            with col3:
+                loan_amount = st.number_input("Requested Loan Amount (₹)", 50000, 5000000, 500000, 50000)
+            with col4:
+                loan_term = st.selectbox("Preferred Loan Term", ["12 months", "24 months", "36 months", "48 months", "60 months"])
+            with col5:
+                collateral_value = st.number_input("Collateral Value (₹)", 0, 5000000, 0, 50000,
+                                                 help="Value of assets offered as security (if any)")
+            
+            # System selection
+            st.subheader("🤖 AI System Selection")
+            system_choice = st.radio(
+                "Choose AI System for Analysis:",
+                ["Both Systems (Recommended)", "Credit Bureau Only", "AI Scoring 2.0 Only"],
+                horizontal=True,
+                help="Credit Bureau: Traditional models | AI 2.0: Advanced machine learning + scorecard"
+            )
+            
+            # Submit button
+            submitted = st.form_submit_button("🚀 Analyze Credit Risk", use_container_width=True)
+            
+            if submitted:
+                features = [credit_score, annual_income, employment_length, dti_ratio, 
+                          credit_utilization, total_accounts, derogatory_marks, savings_balance]
+                
+                with st.spinner("🤖 AI Systems Analyzing Credit Risk... This may take a few seconds."):
+                    system_map = {
+                        "Both Systems (Recommended)": "both",
+                        "Credit Bureau Only": "bureau", 
+                        "AI Scoring 2.0 Only": "ai_scoring"
+                    }
+                    
+                    self.current_prediction = self.predict_ensemble(features, system_map[system_choice])
+                    st.success("✅ Credit Assessment Complete! Scroll down to view results.")
+                    return True
+        return False
 
     def render_platform_instructions(self):
         """Render clear platform instructions using Streamlit components"""
@@ -567,75 +578,6 @@ class AICreditScoring2:
             "HIGH RISK": "risk-high"
         }
         return risk_classes.get(risk_level, "risk-medium")
-
-    def render_credit_scoring_form(self):
-        """Render the main credit scoring form"""
-        st.markdown('<div class="section-header"><h2>📋 Applicant Credit Information</h2></div>', unsafe_allow_html=True)
-        
-        with st.form("credit_application"):
-            col1, col2 = st.columns(2)
-            
-            with col1:
-                st.subheader("👤 Personal & Financial Information")
-                credit_score = st.slider("Credit Score", 300, 850, 720, 
-                                       help="FICO credit score range 300-850. Higher scores indicate better credit history.")
-                annual_income = st.number_input("Annual Income (₹)", 100000, 5000000, 750000, 50000,
-                                              help="Gross annual income in Indian Rupees. Include all verifiable income sources.")
-                employment_length = st.number_input("Employment Length (years)", 0, 40, 5,
-                                                  help="Total years in current employment or profession.")
-                total_accounts = st.number_input("Total Credit Accounts", 1, 20, 8,
-                                               help="Number of active credit accounts (credit cards, loans, etc.)")
-                
-            with col2:
-                st.subheader("📊 Credit Metrics & Behavior")
-                dti_ratio = st.slider("Debt-to-Income Ratio", 0.1, 0.8, 0.35, 0.01,
-                                    help="Monthly debt payments divided by monthly gross income. Lower is better.")
-                credit_utilization = st.slider("Credit Utilization Ratio", 0.0, 1.0, 0.3, 0.01,
-                                             help="Total credit used divided by total credit limit. Recommended: below 30%.")
-                derogatory_marks = st.number_input("Derogatory Marks", 0, 10, 0,
-                                                 help="Number of late payments (90+ days), defaults, collections, or bankruptcies.")
-                savings_balance = st.number_input("Savings & Investments (₹)", 0, 2000000, 200000, 10000,
-                                                help="Total liquid savings, investments, and fixed deposits.")
-            
-            # Additional financial information
-            st.subheader("💼 Additional Financial Details")
-            col3, col4, col5 = st.columns(3)
-            
-            with col3:
-                loan_amount = st.number_input("Requested Loan Amount (₹)", 50000, 5000000, 500000, 50000)
-            with col4:
-                loan_term = st.selectbox("Preferred Loan Term", ["12 months", "24 months", "36 months", "48 months", "60 months"])
-            with col5:
-                collateral_value = st.number_input("Collateral Value (₹)", 0, 5000000, 0, 50000,
-                                                 help="Value of assets offered as security (if any)")
-            
-            # System selection
-            st.subheader("🤖 AI System Selection")
-            system_choice = st.radio(
-                "Choose AI System for Analysis:",
-                ["Both Systems (Recommended)", "Credit Bureau Only", "AI Scoring 2.0 Only"],
-                horizontal=True,
-                help="Credit Bureau: Traditional models | AI 2.0: Advanced machine learning + scorecard"
-            )
-            
-            # Submit button
-            submitted = st.form_submit_button("🚀 Analyze Credit Risk", use_container_width=True)
-            
-            if submitted:
-                features = [credit_score, annual_income, employment_length, dti_ratio, 
-                          credit_utilization, total_accounts, derogatory_marks, savings_balance]
-                
-                with st.spinner("🤖 AI Systems Analyzing Credit Risk... This may take a few seconds."):
-                    system_map = {
-                        "Both Systems (Recommended)": "both",
-                        "Credit Bureau Only": "bureau", 
-                        "AI Scoring 2.0 Only": "ai_scoring"
-                    }
-                    
-                    self.current_prediction = self.predict_ensemble(features, system_map[system_choice])
-                    st.success("✅ Credit Assessment Complete! Scroll down to view results.")
-                    return True
-        return False
 
     def render_scoring_results(self):
         """Render comprehensive scoring results"""
@@ -1162,6 +1104,85 @@ RECOMMENDATIONS:
         else:
             st.warning("Please complete credit assessment first to generate reports.")
 
+    def render_developer_profile(self):
+        """Render Ayush Shukla's developer profile at the BOTTOM of the page"""
+        st.markdown("---")
+        st.markdown("""
+        <div class="developer-card">
+            <h2 style="text-align: center; margin-bottom: 0.5rem;">👨‍💻 Developed by Ayush Shukla</h2>
+            <p style="text-align: center; margin-bottom: 1rem; opacity: 0.9;">Data Scientist & AI Engineer</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        # Contact information with SMALL icons
+        st.subheader("📞 Contact & Links", anchor=False)
+        
+        contact_col1, contact_col2, contact_col3 = st.columns(3)
+        
+        with contact_col1:
+            st.markdown("**LinkedIn**")
+            st.markdown("""
+            <a href="https://www.linkedin.com/in/ayush-shukla-data-scientist/" target="_blank" style="color: white; text-decoration: none;">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" class="small-icon">
+                Connect on LinkedIn
+            </a>
+            """, unsafe_allow_html=True)
+            st.caption("Professional Profile")
+        
+        with contact_col2:
+            st.markdown("**GitHub**")
+            st.markdown("""
+            <a href="https://github.com/ayushshukla774" target="_blank" style="color: white; text-decoration: none;">
+                <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" class="small-icon">
+                View GitHub Profile
+            </a>
+            """, unsafe_allow_html=True)
+            st.caption("Code & Projects")
+        
+        with contact_col3:
+            st.markdown("**Email**")
+            st.markdown("""
+            <a href="mailto:ayush.shukla774@gmail.com" style="color: white; text-decoration: none;">
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" class="small-icon">
+                ayush.shukla774@gmail.com
+            </a>
+            """, unsafe_allow_html=True)
+            st.caption("Get in touch")
+        
+        # About This Project
+        st.markdown("---")
+        st.subheader("🚀 About This Project", anchor=False)
+        st.info("""
+        **AI Credit Scoring 2.0** is an advanced machine learning platform that combines traditional credit bureau models 
+        with modern AI algorithms to provide comprehensive credit risk assessment. This enterprise solution features:
+        
+        - 🤖 **8 AI Models** working in ensemble
+        - 📊 **Real-time analytics** and risk scoring
+        - 🏦 **Bank-grade** credit assessment
+        - 📄 **Professional reporting** system
+        """)
+        
+        # Skills and Technologies
+        st.subheader("🛠️ Technologies Used", anchor=False)
+        
+        tech_col1, tech_col2, tech_col3, tech_col4 = st.columns(4)
+        
+        with tech_col1:
+            st.success("**Machine Learning**")
+            st.caption("XGBoost, LightGBM, Ensemble")
+        
+        with tech_col2:
+            st.success("**Data Science**")
+            st.caption("Pandas, NumPy, Scikit-learn")
+        
+        with tech_col3:
+            st.success("**FinTech**")
+            st.caption("Credit Risk, Scoring")
+        
+        with tech_col4:
+            st.success("**Streamlit**")
+            st.caption("Web Framework, Deployment")
+
     def run(self):
         """Run the complete application"""
         self.setup_application()
@@ -1176,30 +1197,23 @@ RECOMMENDATIONS:
         # Render header
         self.render_enterprise_header()
         
-        # Show developer profile
-        self.render_developer_profile()
+        # FIRST: Show credit scoring form immediately
+        assessment_completed = self.render_credit_scoring_form()
         
-        # Show platform instructions and features when no assessment is done
-        if not self.current_prediction:
+        if assessment_completed:
+            # Show results if assessment completed
+            self.render_scoring_results()
+            self.render_model_analytics()
+            self.render_portfolio_analytics()
+            self.render_pdf_report_section()
+        else:
+            # Show instructions and features only when no assessment is done
             self.render_platform_instructions()
             self.render_advanced_dashboard()
             self.render_advanced_features()
         
-        # Step 1: Credit Scoring Form
-        assessment_completed = self.render_credit_scoring_form()
-        
-        if assessment_completed:
-            # Step 2: Scoring Results
-            self.render_scoring_results()
-            
-            # Step 3: Model Analytics
-            self.render_model_analytics()
-            
-            # Step 4: Portfolio Analytics
-            self.render_portfolio_analytics()
-            
-            # Step 5: PDF Report (HTML alternative)
-            self.render_pdf_report_section()
+        # LAST: Show developer profile at the bottom
+        self.render_developer_profile()
 
 if __name__ == "__main__":
     app = AICreditScoring2()
